@@ -106,6 +106,9 @@
 
 /* Room component */
 .room {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 1px solid #f0f0f0;
   width: 23rem;
   height: calc(100vh - 4rem);
@@ -221,7 +224,7 @@
 }
 
 
-/* change width whe shrink */
+/* change width when shrink */
 @media all and (max-width: 1100px) {
   .App {
     display: flex;
@@ -238,6 +241,21 @@
   }
 
   .room {
-    display: none;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 100%;
+    justify-content: space-between;
   }
+}
+
+/* Exit button  */
+
+.exitButton {
+  margin-top: 5px;
+  all: unset;
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+
 }

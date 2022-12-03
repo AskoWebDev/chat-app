@@ -1,12 +1,14 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import {SocketContext} from './SocketContext';
+import { redirect, useNavigate } from 'react-router-dom';
 
 export const NameContext = createContext()
 
 export function ThemeProvider({ children }) {
 	const socket = useContext(SocketContext)
+	
 
-	const [name, setName] = useState(() => localStorage.getItem('name'))
+	const [name, setName] = useState('')
 
 
 	function handle(e) {
@@ -14,7 +16,11 @@ export function ThemeProvider({ children }) {
 
 		const input = document.getElementById('text_name')
 
-		setName(input.value)
+		if (input.value !== '' && input.value !== null) {
+			setName(input.value)
+			
+		} 
+		
 
 	}
 	
@@ -27,7 +33,7 @@ export function ThemeProvider({ children }) {
 		handle: handle
 	}
 
-
+	console.log(name)
 	return(
 		<NameContext.Provider value={values}>
 			{children}

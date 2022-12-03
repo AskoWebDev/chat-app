@@ -8,27 +8,34 @@ import { SocketProvider } from './utils/SocketContext'
 import { RoomProvider } from './utils/RoomContext'
 
 import {
-  createBrowserRouter,
-  RouterProvider,
-  Route
+  BrowserRouter,
+  Route,
+  Routes
 } from "react-router-dom";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Welcome />
-  },
-  {
-    path: "/app",
-    element: <App />
-  },
-])
+// const router = createBrowserRouter([
+//   { 
+//     path: '/',
+//     element: <Welcome />,
+//     children: [
+//       {
+//         path: 'app',
+//         element: <App />,
+//       }
+//     ],
+//   },
+// ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <SocketProvider>
     <RoomProvider>
       <ThemeProvider>
-          <RouterProvider router={router} />
+          <BrowserRouter>
+            <Routes>
+              <Route path='/' element={<Welcome />} />
+              <Route path='/app' element={<App />} />
+            </Routes>
+          </BrowserRouter>
       </ThemeProvider>
     </RoomProvider>
   </SocketProvider>
