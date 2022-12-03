@@ -18,7 +18,7 @@ function Room() {
 	
 	return(
 		<div className="room">
-			<h2>{message} </h2>
+			<h3>{message} </h3>
 			<Exit />
 		</div>
 	)
